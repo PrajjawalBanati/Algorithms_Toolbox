@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
-int fibonacci(int n);
-int fibonacci(int n)
+unsigned long fibonacci(int n);
+unsigned long fibonacci(int n)
 {
     if(n<=1)
     {
