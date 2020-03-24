@@ -25,7 +25,7 @@
       }
       ```
       - So lets know the reason why it will work slow when supplied with large arguements. As you can observe it is following a recursive strategy so in all cases it will calculate same value numerous times.
-        ![img](https://github.com/PrajjawalBanati/Algorithms_Toolbox/blob/week_2/Capture.PNG)
+        ![img](https://github.com/PrajjawalBanati/Algorithms_Toolbox/blob/master/Capture.PNG)
       - So in the above picture we are calculating the nth fibonacci number, so to calculate it will follow a recursive tree strategy. The thing which we are doing wrong here is we are calculating some values again and again. Looking at the figure you could see that F(n-4) is calculated constantly for 5 times which is <b>making the algorithm slow and time consuming</b>.
     - <b>Efficient Approach</b>
       - In Efficient Approach we will try to store the previous values so that at the time of finding the next values we will not again calculate the previous values. So let us look at the function we designed.
