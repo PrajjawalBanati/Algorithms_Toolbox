@@ -73,6 +73,7 @@
 		- Lets discuss the Key Lemma First and then design our new approach.
 	- <b>Key Lemma</b>
 		- According to the statement we stated above is the KEY LEMMA which was designed by Euclid. It says that if we have two numbers a,b and on dividing a with b if we get a remainder a' then the gcd(a,b) and gcd(b,a') will be equal. So after a certain number of iterations there will be a point when we will be left with gcd(d,0) stating that d is the gcd. Lets look at the following example.
+		![img](https://github.com/PrajjawalBanati/Algorithms_Toolbox/blob/master/Outputs/Capture_1.PNG)
 		- In the above picture you can see that we started with two numbers as 3918848 and 1653264. And following the lemma rule we arrived at our result. So lets do the coding part now.
 	- <b>Efficient Approach</b>
 		- So after we understood the lemma lets frame our function. We will simply write a condition that when second number is 0 return the first number as gcd otherwise divide the two numbers, store the remainder and at last pass the second number and remainder as two arguements in the same function. So yeah here we will follow the recursive strategy. So lets see the function now.
