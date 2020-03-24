@@ -47,3 +47,56 @@
       ```
       - So here at first we are allocating memory equal to the positon which is passed as an arguement to the function. So after allocating the memory we initialized the first two numbers as 0 and 1 in 1st and 2nd position as they will be the fist two fibonacci numbers.
       - After that we run a loop till `n` that keeps on calculating and storing the fibonacci numbers in the array. Here once the number is calculated and stored will be fetched if needed again as it will be on some positon in the array. This will definately reduce the time as we will not calculate same value again and again. 
+# Greatest Common Divisor
+- Greatest common divisor of two numbers is the number which divides both the numbers with no remainders left. Following the defination we can proceed to write the function and we have two approaches to solve the problem. They are described as follows:-
+	- <b>Naive Approach</b>
+		- In Naive Approach, Suppose we have two numbers and we want to calculate the GCD so what we will do is iterate from 0->(a+b) and try every possibilty and the number which is the greatest is stored in the variable and returned.
+		- So lets have a look on the function.
+		```
+		int GreatestCommonDivisor(int firstnumber,int secondnumber)
+		{
+    			int gcd=0,i;
+    			for(i=1;i<firstnumber+secondnumber;i++)
+    		{
+        		if((firstnumber%i==0) && (secondnumber%i==0))
+        		{
+            			gcd=i;
+        		}
+    		}
+    		return gcd;
+		}
+		```
+		- Now this algo will definately will work slow when we have 20-digit numbers because you know the loop will last longer and thus trying each possiblity and storing will take time. So lets try different approach but to learn that approach you should be familiar with one mathematical Key Lemma that is.
+		```
+		Suppose that we have two numbers and let a' be the remainder when a is divided by b, then the gcd(a,b) is actually the same as the gcd(a',b), and also the same as the gcd(b, a').
+		```
+		- Lets discuss the Key Lemma First and then design our new approach.
+	- <b>Key Lemma</b>
+		- According to the statement we stated above is the KEY LEMMA which was designed by Euclid. It says that if we have two numbers a,b and on dividing a with b if we get a remainder a' then the gcd(a,b) and gcd(b,a') will be equal. So after a certain number of iterations there will be a point when we will be left with gcd(d,0) stating that d is the gcd. Lets look at the following example.
+		- In the above picture you can see that we started with two numbers as and . And following the lemma rule we arrived at our result. So lets do the coding part now.
+	- <b>Efficient Approach</b>
+		- So after we understood the lemma lets frame our function. We will simply write a condition that when second number is 0 return the first number as gcd otherwise divide the two numbers, store the remainder and at last pass the second number and remainder as two arguements in the same function. So yeah here we will follow the recursive strategy. So lets see the function now.
+		```
+		int GreatestCommonDivisor(int firstnumber,int secondnumber)
+		{
+    			int gcd,remainder;
+    			if(firstnumber>secondnumber)
+    			{
+        			if(secondnumber==0)
+        			{
+            				gcd=firstnumber;
+        			}
+        		else
+        		{
+            			remainder=firstnumber%secondnumber;
+            			gcd=GreatestCommonDivisor(secondnumber,remainder);
+        		}
+    			}
+    			else
+    			{
+        			GreatestCommonDivisor(secondnumber,firstnumber);
+    			}
+    			return gcd;
+		}
+		```
+		- So yeah this will be more efficient as there will no long loops only some continous calls and the function will be in less recursions.
